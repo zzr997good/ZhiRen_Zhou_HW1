@@ -3,15 +3,34 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+  sum=0
+  arr.each do |i|
+    sum+=i
+  end
+  return sum
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  if arr.length==0
+    return  0
+  elsif arr.length==1
+    return arr[0]
+  else
+    return arr.sort{|x,y| y<=>x}[0]+arr.sort{|x,y| y<=>x}[1] #arr.sort does not make changes to original array, but creats a new sorted array
+  end
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  searchSet=new set
+  arr.each do |i|
+    if searchSet===(n-i)
+      return true
+    else
+      searchSet.add(i)
+    end
+  end
+  return false
+  # return  arr.permutation(2).any? { |a, b| a + b == n }
 end
 
 # Part 2
